@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kontak - BukuKita</title>
+</head>
+<body>
+
+    <h1>Hubungi Kami</h1>
+
+    <p>
+        <a href="index.html">Home</a> |
+        <a href="beranda.html">Beranda</a> |
+        <a href="katalog.html">Katalog</a> |
+        <a href="promo.html">Promo</a> |
+        <a href="tentang-kami.html">Tentang Kami</a> |
+        <a href="kontak.html">Kontak</a>
+    </p>
+
+    <hr>
+
+    <!-- FORM KONTAK -->
+    <div id="formKontak">
+
+        <h2>Hubungi Kami</h2>
+
+        <form onsubmit="kirimPesan(event)">
+
+            <label>Nama Lengkap:</label><br>
+            <input type="text" id="nama" name="nama" required>
+
+            <br><br>
+
+            <label>Email:</label><br>
+            <input type="email" name="email" required>
+
+            <br><br>
+
+            <label>Nomor Telepon:</label><br>
+            <input type="text" name="telepon" required>
+
+            <br><br>
+
+            <label>Topik Pesan:</label><br>
+
+            <select name="topik" required>
+                <option value="">-- Pilih Topik --</option>
+                <option>Pertanyaan Umum</option>
+                <option>Pemesanan Buku</option>
+                <option>Komplain</option>
+                <option>Kerja Sama</option>
+            </select>
+
+            <br><br>
+
+            <label>Pesan Anda:</label><br>
+
+            <textarea 
+                name="pesan" 
+                rows="5" 
+                cols="35"
+                required
+            ></textarea>
+
+            <br>
+
+            <label>
+                Bagaimana Anda Mengetahui Kami?
+                (Pilih satu)
+            </label>
+
+            <br><br>
+
+            <input type="radio" name="sumber" value="Media Sosial" required>
+            Media Sosial
+
+            <br>
+
+            <input type="radio" name="sumber" value="Mesin Pencari">
+            Mesin Pencari
+
+            <br>
+
+            <input type="radio" name="sumber" value="Rekomendasi Teman">
+            Rekomendasi Teman
+
+            <br><br>
+
+            <input type="checkbox" id="syarat" required>
+
+            Setujui Syarat & Ketentuan
+
+            <br><br>
+
+            <button type="submit">Kirim Pesan</button>
+
+        </form>
+
+    </div>
+
+
+    <!-- PESAN BERHASIL -->
+    <div id="pesanBerhasil" style="display: none;">
+
+        <h2>Pesan Berhasil Dikirim!</h2>
+
+        <p>
+            Terima kasih, <span id="namaPengirim"></span>.
+        </p>
+
+        <p>
+            Pesan Anda telah kami terima.
+            Kami akan segera menghubungi Anda kembali.
+        </p>
+
+        <p>
+            <a href="index.html">Kembali ke Beranda</a>
+        </p>
+
+    </div>
+
+
+    <script>
+
+        function kirimPesan(event) {
+
+            // Mencegah halaman refresh
+            event.preventDefault();
+
+            // Mengambil nama pengirim
+            let nama = document.getElementById("nama").value;
+
+            // Menampilkan nama di halaman berhasil
+            document.getElementById("namaPengirim").textContent = nama;
+
+            // Menghilangkan form
+            document.getElementById("formKontak").style.display = "none";
+
+            // Menampilkan pesan berhasil
+            document.getElementById("pesanBerhasil").style.display = "block";
+
+        }
+
+    </script>
+
+</body>
+</html>
+
+   
